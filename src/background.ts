@@ -17,7 +17,7 @@ protocol.registerSchemesAsPrivileged([{ scheme: 'app', privileges: { secure: tru
 function createWindow () {
   // Create the browser window.
   win = new BrowserWindow({
-    width: 1080,
+    width: 1480,
     height: 720,
     webPreferences: {
       nodeIntegration: true
@@ -38,7 +38,7 @@ function createWindow () {
     win = null
   })
 }
-
+app.allowRendererProcessReuse = true
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
   // On macOS it is common for applications and their menu bar
