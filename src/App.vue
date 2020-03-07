@@ -15,11 +15,24 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import fly from 'flyio'
 
 export default {
   name: 'app',
   components: {
     HelloWorld
+  },
+  methods: {
+    getFlyio () {
+      fly.get('https://www.baidu.com').then((res) => {
+        console.log(res, 'fly')
+      }).catch((err) => {
+        console.log(err)
+      })
+    }
+  },
+  created () {
+    this.getFlyio()
   }
 }
 </script>
