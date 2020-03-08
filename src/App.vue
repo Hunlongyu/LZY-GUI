@@ -13,26 +13,29 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
 import HelloWorld from './components/HelloWorld.vue'
-import fly from 'flyio'
+import Api from './utils/api'
 
-export default {
-  name: 'app',
+@Component({
   components: {
     HelloWorld
-  },
-  methods: {
-    getFlyio () {
-      fly.get('https://www.baidu.com').then((res) => {
-        console.log(res, 'fly')
-      }).catch((err) => {
-        console.log(err)
-      })
-    }
-  },
+  }
+})
+export default class extends Vue {
+  getFly () {
+    const api = new Api()
+    api.login('17756011557', 'CNc$iZ1G2%@Y')
+  }
+
   created () {
-    this.getFlyio()
+    this.getFly()
+    console.log('created')
+  }
+
+  mounted () {
+    console.log('mounted')
   }
 }
 </script>
